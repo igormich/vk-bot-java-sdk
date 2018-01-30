@@ -147,7 +147,7 @@ public class Utils {
      * Calculcating size of file in url
      *
      * @param url URL
-     * @param dim Bits, KBits or MBits
+     * @param dim B, KB or MB
      * @return Size
      */
     public static int sizeOfFile(String url, String dim) {
@@ -160,13 +160,13 @@ public class Utils {
             double sizeInBits = conn.getContentLength();
 
             switch (dim) {
-                case "bits": {
+                case "b": {
                     return (int) sizeInBits;
                 }
-                case "kbits": {
+                case "kb": {
                     return (int) Math.round(sizeInBits / 1024.0);
                 }
-                case "mbits": {
+                case "mb": {
                     return (int) Math.round(sizeInBits / (1024.0 * 1024.0));
                 }
             }
@@ -230,7 +230,7 @@ public class Utils {
 
     public static byte[] toByteArray(InputStream input) throws IOException {
         ByteArrayOutputStream output = new ByteArrayOutputStream();
-        copy((InputStream) input, (OutputStream) output);
+        copy(input, output);
         return output.toByteArray();
     }
 
